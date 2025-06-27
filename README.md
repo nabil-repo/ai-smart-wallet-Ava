@@ -127,4 +127,3 @@ MIT License © 2025 \[Nabil Ansari]
 
 > Built for the love of crypto + AI ✨
 
-```

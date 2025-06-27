@@ -25,7 +25,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     [publicProvider()],
 );
 
-const projectId = "f536db225422406fe9850f33a488a5c2";
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 const { wallets } = getDefaultWallets({
     appName: "AVASense",
