@@ -1,8 +1,4 @@
-Here’s a `README.md` file tailored for your **AVASense** project — an AI-powered smart contract wallet that supports voice or chat control, built with **Next.js**, **RainbowKit**, **Wagmi**, and **Ethers.js**, deployed on **Avalanche Fuji Testnet**.
 
----
-
-````markdown
 # AVASense 🔐🤖
 
 **AVASense** is an AI-powered smart contract wallet dApp that allows users to manage their crypto assets using natural language (chat or voice). It supports token transfers, balance checks, guardian recovery, and more — all through a sleek interface integrated with RainbowKit, Wagmi, and Ethers.js.
@@ -132,6 +128,3 @@ MIT License © 2025 \[Nabil Ansari]
 > Built for the love of crypto + AI ✨
 
 ```
-
----
-
