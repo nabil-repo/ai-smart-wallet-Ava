@@ -17,6 +17,18 @@
 - 🔁 Wallet auto-creation via factory contract
 - 🎨 Modern, responsive UI with TailwindCSS
 
+
+---
+
+## ⚙️ Smart Contract Addresses
+
+| Contract       | Address                                 |
+| -------------- | --------------------------------------- |
+| Wallet Factory | `0xF030E94be8B2fCDF2317928CACaF8979F3DEc524` |
+| Smart Wallet   | Created per user via factory            |
+
+---
+
 ---
 
 ## 🚀 Getting Started
@@ -84,16 +96,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 └── README.md
 ```
 
----
 
-## ⚙️ Smart Contract Addresses
-
-| Contract       | Address                                 |
-| -------------- | --------------------------------------- |
-| Wallet Factory | `0x...` (replace with deployed address) |
-| Smart Wallet   | Created per user via factory            |
-
----
 
 <!-- ## 📸 Screenshots
 
