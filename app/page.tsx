@@ -40,7 +40,9 @@ export default function Home() {
 
         const service = new WalletService(signer)
         await service.connect()
+        console.log("✅ WalletService connected", service)
         setWalletService(service)
+
       } catch (err) {
         console.error("Failed to initialize wallet service:", err)
       }
