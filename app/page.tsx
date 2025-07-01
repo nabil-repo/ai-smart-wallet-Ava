@@ -11,6 +11,7 @@ import { MessageSquare, Wallet, Settings } from "lucide-react"
 import '../styles/globals.css'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
+
 import {
   useAccount,
   useConnect,
@@ -24,15 +25,7 @@ export default function Home() {
   const [walletService, setWalletService] = useState<WalletService | null>(null)
   const { data: walletClient } = useWalletClient()
 
-  const setupWalletService = async () => {
-    if (walletClient && address) {
-      const ethersProvider = new ethers.BrowserProvider(window.ethereum)
-      const signer = await ethersProvider.getSigner(address)
-      const service = new WalletService()
-      await service.connect(signer)
-      setWalletService(service)
-    }
-  }
+
 
   useEffect(() => {
     const setupWalletService = async () => {
@@ -42,10 +35,11 @@ export default function Home() {
       }
 
       try {
-        const ethersProvider = new ethers.BrowserProvider(window.ethereum)
-        const signer = await ethersProvider.getSigner(address)
-        const service = new WalletService()
-        await service.connect(signer)
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+
+        const service = new WalletService(signer)
+        await service.connect()
         setWalletService(service)
       } catch (err) {
         console.error("Failed to initialize wallet service:", err)

@@ -44,40 +44,19 @@ const AVALANCHE_PARAMS = {
 
 
 export class WalletService {
-  private provider: ethers.BrowserProvider
   private signer: ethers.Signer | null = null
   private smartWallet: ethers.Contract | null = null
   private smartWalletAddress: string = ""
 
-  constructor() {
-    if (typeof window !== "undefined" && window.ethereum) {
-      this.provider = new ethers.BrowserProvider(window.ethereum)
-    } else {
-      throw new Error("Ethereum provider not found")
-    }
+  constructor(signer: ethers.Signer) {
+    this.signer = signer
   }
 
-  // async connect(): Promise<string> {
-  //   try {
-  //     await this.ensureCorrectNetwork()
 
-  //     const accounts = await this.provider.send("eth_requestAccounts", [])
-  //     const address = accounts[0]
-  //     this.signer = await this.provider.getSigner(address)
 
-  //     await this.getOrCreateSmartWallet(address)
-
-  //     return address
-  //   } catch (error: any) {
-  //     console.error("Failed to connect wallet:", error)
-  //     throw error
-  //   }
-  // }
-
-  async connect(externalSigner: ethers.Signer): Promise<string> {
+  async connect(): Promise<string> {
     try {
       await this.ensureCorrectNetwork()
-      this.signer = externalSigner
 
       const address = await this.signer.getAddress()
       await this.getOrCreateSmartWallet(address)
