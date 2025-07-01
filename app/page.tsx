@@ -35,9 +35,26 @@ export default function Home() {
   }
 
   useEffect(() => {
+    const setupWalletService = async () => {
+      if (!walletClient || !address || !isConnected) {
+        console.log("Waiting for walletClient, address or connection...")
+        return
+      }
+
+      try {
+        const ethersProvider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await ethersProvider.getSigner(address)
+        const service = new WalletService()
+        await service.connect(signer)
+        setWalletService(service)
+      } catch (err) {
+        console.error("Failed to initialize wallet service:", err)
+      }
+    }
 
     setupWalletService()
-  }, [walletClient, address])
+  }, [walletClient, address, isConnected])
+
 
 
 
