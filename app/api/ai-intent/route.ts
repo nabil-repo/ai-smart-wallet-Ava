@@ -57,20 +57,20 @@ export async function POST(req: Request) {
    
     console.log(userMessage)
 
-    const completion = await openai.chat.completions.create({
-      model: "deepseek/deepseek-r1-distill-llama-70b:free",
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: `Parse this user command: "${userMessage}"` },
-      ],
-    })
     // const completion = await openai.chat.completions.create({
-    //   model: "deepseek/deepseek-r1-0528:free",
+    //   model: "deepseek/deepseek-r1-distill-llama-70b:free",
     //   messages: [
     //     { role: "system", content: SYSTEM_PROMPT },
     //     { role: "user", content: `Parse this user command: "${userMessage}"` },
     //   ],
     // })
+    const completion = await openai.chat.completions.create({
+      model: "deepseek/deepseek-r1-0528:free",
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user", content: `Parse this user command: "${userMessage}"` },
+      ],
+    })
 
     const message = completion.choices[0].message?.content || "{}"
     console.log(message)
